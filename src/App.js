@@ -7,6 +7,8 @@ import Merches from "./components/Products/Merches";
 import MerchDetail from "./components/Products/MerchDetail";
 import Users from "./components/Users/Users";
 import UserDetails from "./components/Users/UserDetails";
+import SignUp from "./components/Users/SignUp"
+import LogIn from "./components/Users/LogIn";
 
 function App() {
     const [phone, setPhone] = useState('+996(997-997-908)')
@@ -19,6 +21,8 @@ function App() {
                     <Link to="/merches">Товары</Link> &nbsp;|&nbsp;&nbsp;
                     <Link to="/about">О нас</Link> |&nbsp;&nbsp;
                     <Link to="/contacts">Контакты</Link> |&nbsp;
+                    <Link to="/signup">Регистрация</Link> |&nbsp;
+                    <Link to="/login">Авторизация</Link> |&nbsp;
                     <Link to="/users">Пользователи</Link>&nbsp;&nbsp;&nbsp;&nbsp;
                     <span>phone: {phone}</span>
                 </nav>
@@ -26,6 +30,8 @@ function App() {
             <Routes>
                 <Route path="/merches" element={<Merches />}/>
                 <Route path="/about" element={<About/>}/>
+                <Route path="/signup" element={<SignUp/>}/>
+                <Route path="/login" element={<LogIn/>}/>
                 <Route path="/contacts" element={<Contacts phoneNumber={phone}/>}/>
                 <Route path="/merches/:id" element={<MerchDetail />}/>
                 <Route path="/users" element={<Users />}/>

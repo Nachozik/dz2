@@ -3,11 +3,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 
+
 const MerchDetail = () => {
     const [cap, setCap] = useState([]);
     const [brand, setBrand] = useState({});
-    const [brandName, setBrandName] = useState("Noike");
-    const [brandImg, setBrandImg] = useState("blya");
     const {id} = useParams();
 
     const getCap = () => {
@@ -17,7 +16,7 @@ const MerchDetail = () => {
     };
 
     useEffect(()=>{getCap()}, []);
-    useEffect(()=>{setBrand(cap.brand); if(brand!=null){setBrandName(brand.name); setBrandImg(brand.img)}}, [cap]);
+    useEffect(()=>{setBrand(cap.brand)},[cap]);
     const BrandName=function () {
         return (<div>brand.name</div>)
     };
@@ -26,8 +25,8 @@ const MerchDetail = () => {
         <div>
             <div>{cap.name}</div>
             <div>{cap.price}</div>
-            <div>{brandName}</div>
-            <img src={brandImg} alt=""/>
+            <div>{brand?brand.name:"Нет"}</div>
+            <img src={brand?brand.img:"https://i.gifer.com/VAyR.gif"} alt=""/>
             <div>{cap.description}</div>
         </div>
     );
